@@ -1,0 +1,38 @@
+// Message Info
+const starSigns = { 
+    zodiacSigns:["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"],
+    element: ["Fire", "Water", "Earth", "Air", "Metal", "Wood", "Spirit", "Ether"],
+    obstacle : ["Indecision", "Distraction", "Impatience", "Overthinking", "Doubt", "Fear", "Stubbornness", "Laziness", "Confusion", "Worry"]
+}
+
+//Random Number Generator
+const randomGenerator = (num) => {return Math.floor(Math.random() * num )};
+
+// New Array
+const messageDetails = [];
+
+
+for (let item in starSigns) {
+    let choice = randomGenerator(starSigns[item].length)
+
+    switch (item) {
+        case "zodiacSigns":
+            messageDetails.push(`Today, ${starSigns[item][choice]},`);
+            break;
+        case "element":
+            messageDetails.push(`you will find strength in ${starSigns[item][choice]},`);
+            break;
+        case "obstacle" :
+            messageDetails.push(`but beware of ${starSigns[item][choice]} holding you back.`);
+            break;
+        default:
+            console.log("Not enough information.");
+    } 
+}
+
+const finalMessage = (wisdom) => {
+    const final = messageDetails.join(" ");
+    console.log(final);
+}
+
+finalMessage(messageDetails);
